@@ -1,9 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+
+import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
+import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import 'rxjs/Rx';
+import {HttpClientModule} from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
+import { 
+  FileUploadService } from './file-upload.service';
+
 
 
 @NgModule({
@@ -12,9 +21,13 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpModule,
+    HttpClientModule
+
   ],
-  providers: [],
+  providers: [FileUploadService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
